@@ -1,57 +1,279 @@
-# MNIST Handwritten Digit Classifier
+# Handwritten Digit Classification with PyTorch
 
-A deep learning project built using PyTorch and Google Colab to classify handwritten digits from the MNIST dataset. The model was trained on 60,000 images and tested on 10,000 images of handwritten digits (0–9).
+A beginner-to-intermediate deep learning journey using the MNIST dataset and PyTorch.
 
-## Features
-- Built with PyTorch
-- Neural network for digit classification
-- Training and testing pipeline
-- Model evaluation with accuracy score
-- Visualization of predictions
+This repository contains three projects showing the evolution from:
+1. Simple Artificial Neural Network (ANN)
+2. Convolutional Neural Network (CNN)
+3. Improved CNN with regularization techniques
 
-## Technologies Used
+---
+
+# Projects Overview
+
+| Project | Description | Accuracy |
+|---|---|---|
+| ANN Classifier | Basic fully connected neural network | ~96% |
+| CNN Classifier | Convolutional neural network for image feature extraction | ~98% |
+| Improved CNN | CNN with BatchNorm, Dropout, and Data Augmentation | ~98%+ |
+
+---
+
+# Dataset
+
+Dataset Used:
+- MNIST Handwritten Digits Dataset
+
+Dataset Details:
+- 70,000 handwritten digit images
+- 28×28 grayscale images
+- Digits from 0–9
+- 60,000 training images
+- 10,000 testing images
+
+---
+
+# Tech Stack
+
 - Python
 - PyTorch
-- Torchvision
-- Matplotlib
+- torchvision
+- matplotlib
 - Google Colab
 
-## Dataset
-The project uses the MNIST dataset, a popular benchmark dataset containing grayscale handwritten digit images of size 28×28 pixels.
+---
 
-## Model Architecture
-- Flatten Layer
-- Fully Connected Layer (784 → 128)
-- ReLU Activation
-- Fully Connected Layer (128 → 64)
-- ReLU Activation
-- Output Layer (64 → 10)
+# Project 1 — Simple ANN Classifier
 
-## Training
-The model was trained using:
-- CrossEntropyLoss
-- Adam Optimizer
-- Batch Size: 64
-- Epochs: 5
+## Goal
 
-## Results
-Achieved a test accuracy of **96.47%** on the MNIST test dataset.
+Learn:
+- tensors
+- neural networks
+- forward pass
+- loss functions
+- optimizers
+- training loop
 
-## Concepts Learned
-- Tensors
-- Neural Networks
-- Forward Pass
-- Loss Functions
+---
+
+## Architecture
+
+Input (784)
+↓
+Linear Layer (128)
+↓
+ReLU
+↓
+Linear Layer (64)
+↓
+ReLU
+↓
+Output Layer (10)
+
+---
+
+## Key Concepts Learned
+
+- Tensor operations
+- Flattening images
+- Fully connected layers
+- Forward propagation
 - Backpropagation
-- Optimizers
-- Training Loops
-- Model Evaluation
+- Gradient descent
+- CrossEntropyLoss
+- Adam optimizer
 
-## Future Improvements
-- Implement Convolutional Neural Networks (CNNs)
-- Add Dropout and Batch Normalization
-- Experiment with different optimizers and hyperparameters
-- Deploy the model as a web application
+---
 
-## Author
-Developed as a beginner deep learning project to understand the fundamentals of AI and neural networks.
+## Result
+
+Test Accuracy: ~96%
+
+---
+
+# Project 2 — CNN Digit Classifier
+
+## Goal
+
+Learn:
+- convolution
+- feature maps
+- pooling
+- spatial feature extraction
+
+---
+
+## Why CNN?
+
+ANNs flatten images immediately:
+
+28×28 → 784
+
+This loses spatial relationships.
+
+CNNs preserve image structure and learn visual patterns like:
+- edges
+- curves
+- shapes
+
+---
+
+## CNN Architecture
+
+Input Image
+↓
+Conv2D
+↓
+ReLU
+↓
+MaxPooling
+↓
+Conv2D
+↓
+ReLU
+↓
+MaxPooling
+↓
+Flatten
+↓
+Fully Connected Layer
+↓
+Output
+
+---
+
+## Key Concepts Learned
+
+- Convolution layers
+- Kernels / filters
+- Feature maps
+- ReLU activation
+- MaxPooling
+- Channels
+- Spatial learning
+
+---
+
+## Result
+
+Test Accuracy: ~98%
+
+---
+
+# Project 3 — Improved CNN (Regularization)
+
+## Goal
+
+Reduce overfitting and improve generalization.
+
+---
+
+## Improvements Added
+
+### 1. Batch Normalization
+
+Stabilizes activations during training.
+
+Benefits:
+- faster training
+- smoother gradients
+- better convergence
+
+---
+
+### 2. Dropout
+
+Randomly disables neurons during training.
+
+Benefits:
+- reduces memorization
+- improves robustness
+- prevents overfitting
+
+---
+
+### 3. Data Augmentation
+
+Random image transformations:
+- rotations
+- shifts
+- variations
+
+Benefits:
+- improves generalization
+- teaches robustness to variations
+
+---
+
+## Improved Architecture
+
+Conv2D
+↓
+BatchNorm
+↓
+ReLU
+↓
+MaxPool
+↓
+Conv2D
+↓
+BatchNorm
+↓
+ReLU
+↓
+MaxPool
+↓
+Flatten
+↓
+Linear
+↓
+Dropout
+↓
+Output
+
+---
+
+## Key Concepts Learned
+
+- Overfitting
+- Generalization
+- BatchNorm
+- Dropout
+- Data augmentation
+- Training vs evaluation mode
+
+---
+
+## Result
+
+Test Accuracy: ~98%+
+
+---
+
+# Training Workflow
+
+All projects follow this deep learning pipeline:
+
+Dataset
+↓
+DataLoader
+↓
+Forward Pass
+↓
+Loss Calculation
+↓
+Backpropagation
+↓
+Optimizer Step
+↓
+Repeat
+
+---
+
+# Installation
+
+## Clone Repository
+
+```bash
+git clone <your-repository-url>
